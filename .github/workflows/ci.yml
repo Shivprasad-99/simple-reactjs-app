@@ -35,8 +35,8 @@ jobs:
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b }}
-          SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
-          SONAR_PROJECT_KEY: ${{ env.SONAR_PROJECT_KEY }}
+          SONAR_HOST_URL: https://sonarcloud.io/
+          SONAR_PROJECT_KEY: Shivprasad-99_simple-reactjs-app
 
 #   docker:
 #     runs-on: ubuntu-latest
