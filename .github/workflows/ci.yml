@@ -22,21 +22,21 @@ jobs:
         run: npm run build
 
 
-#   sonar:
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v3
+  sonar:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-#       - name: SonarQube Scan
-#         uses: SonarSource/sonarcloud-github-action@master
-#         with:
-#           projectBaseDir: .
-#         env:
-#           SONAR_TOKEN: ${{ secrets.bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b }}
-#           SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
-#           SONAR_PROJECT_KEY: ${{ env.SONAR_PROJECT_KEY }}
+      - name: SonarQube Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b }}
+          SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ env.SONAR_PROJECT_KEY }}
 
 #   docker:
 #     runs-on: ubuntu-latest
