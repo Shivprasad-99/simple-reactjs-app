@@ -5,8 +5,7 @@ on:
 
 env:
   SONAR_HOST_URL: https://sonarcloud.io
-  SONAR_TOKEN: bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b
-
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
