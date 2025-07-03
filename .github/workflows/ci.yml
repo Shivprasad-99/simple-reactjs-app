@@ -3,6 +3,10 @@ name: React App CI/CD with Minikube
 on:
     workflow_dispatch: 
 
+env:
+  SONAR_HOST_URL: https://sonarcloud.io
+  SONAR_TOKEN: bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,14 +33,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: .
+      - name: Run SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v2
         env:
-          SONAR_TOKEN: ${{ secrets.bbcbcbf4780b3e6fb385aab3c7e6a4b30ddcb18b }}
-          SONAR_HOST_URL: https://sonarcloud.io/
-          SONAR_PROJECT_KEY: Shivprasad-99_simple-reactjs-app
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
 
 #   docker:
 #     runs-on: ubuntu-latest
